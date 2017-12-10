@@ -3,10 +3,7 @@
 
 console.log(12);
 
-if($==undefined){
-
-console.log(1111)
-
+if(!window.jQuery){
 
 (function(){
   var newscript = document.createElement('script');
@@ -15,6 +12,8 @@ console.log(1111)
      newscript.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js';
   (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript);
 })();
+
+console.log($);
 
 	// var fileref = document.createElement('script')
 	// fileref.setAttribute("type", "text/javascript")
