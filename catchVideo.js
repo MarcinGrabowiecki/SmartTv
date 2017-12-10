@@ -2,3 +2,6 @@
 
 console.log($);
 console.log($('video')[0]);
+
+var src=$('video')[0].src;
+var title=document.title;
