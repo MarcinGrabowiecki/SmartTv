@@ -3,6 +3,10 @@
 
 	console.log('init');
 
+//ph ok
+//xh ok
+//		
+
 	if(!window.jQuery){
 
 	(function(){
@@ -38,9 +42,9 @@
 	  	data: JSON.stringify([title,src,'play',new Date()])
 	  },
 	  success: function(response) {
-	    console.log(response);
+	    alert('append ok' + response);
 	  },
 	  error: function(xhr) {
-	    console.log(xhr);
+	    console.log('problem: ' + xhr);
 	  }
 	});
