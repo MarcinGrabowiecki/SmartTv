@@ -1,6 +1,8 @@
 //javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://rawgit.com/MarcinGrabowiecki/SmartTv/master/catchVideo.js';})();
 
 
+console.log(12);
+
 if($==undefined){
 
 console.log(1111)
