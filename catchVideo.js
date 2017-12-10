@@ -19,9 +19,7 @@
 	})();
 	console.log('jQuery ' + jQuery.fn.jquery + '');
 	console.log($);
-
 	}
-
 
 	console.log($('video')[0]);
 
@@ -31,7 +29,6 @@
 
 	var title=document.title;
 
-	//https://script.google.com/macros/s/AKfycbwMQEd6FI91OgLpKBzejeYkkFhSCarWrUh3giJJlxUE42VBr8mJ/exec?command=append&data=[1,2,3,"xxxxxxx"]
 	var url="https://script.google.com/macros/s/AKfycbwMQEd6FI91OgLpKBzejeYkkFhSCarWrUh3giJJlxUE42VBr8mJ/exec"
 
 	$.ajax({
