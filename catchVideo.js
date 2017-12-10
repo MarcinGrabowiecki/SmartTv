@@ -1,6 +1,11 @@
 //javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://rawgit.com/MarcinGrabowiecki/SmartTv/master/catchVideo.js';})();
 
-console.log($);
+if($){}else{
+	var fileref = document.createElement('script')
+	fileref.setAttribute("type", "text/javascript")
+	fileref.setAttribute("src", "https://code.jquery.com/jquery-3.2.1.min.js")
+	document.getElementsByTagName("head")[0].appendChild(fileref)
+}
 console.log($('video')[0]);
 
 var src;
