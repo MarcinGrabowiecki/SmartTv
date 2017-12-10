@@ -17,7 +17,7 @@ $.ajax({
   type: "get",
   data: { 
   	command: 'append', 
-  	data: JSON.stringify([title,src,'play'])
+  	data: JSON.stringify([title,src,'play',new Date()])
   },
   success: function(response) {
     console.log(response);
