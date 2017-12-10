@@ -16,6 +16,7 @@ if($){}else{
 	// fileref.setAttribute("type", "text/javascript")
 	// fileref.setAttribute("src", "https://code.jquery.com/jquery-3.2.1.min.js")
 	// document.getElementsByTagName("head")[0].appendChild(fileref)
+	//xxx
 }
 
 
