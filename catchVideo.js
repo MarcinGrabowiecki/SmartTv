@@ -13,7 +13,7 @@
 	     if(document.location.protocol=="http:") 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js';
 	  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(newscript);
 	})();
-
+	console.log('jQuery ' + jQuery.fn.jquery + '');
 	console.log($);
 
 	}
