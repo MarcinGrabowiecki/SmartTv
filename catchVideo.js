@@ -39,7 +39,7 @@
 	  	data: JSON.stringify([title,src,'play',new Date()])
 	  },
 	  success: function(response) {
-	    alert('append ok' + response);
+	    alert('append ok');
 	  },
 	  error: function(xhr) {
 	    console.log('problem: ' + xhr);

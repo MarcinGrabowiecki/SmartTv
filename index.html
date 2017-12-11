@@ -6,7 +6,7 @@
   <style type="text/css">
 /*<![CDATA[*/
 	body		{ font-family: "Arial", Times, serif; }
-	a			{ padding:15px; }
+	a			{margin:25px; padding:3px}
 	a:link		{ color:#eeeeee; background-color:#111111; }
 	a:visited	{ color:#c0c0c0; background-color:#222222; }
 	a:hover		{ color:#eeeeee; background-color:#007777; }
@@ -56,7 +56,8 @@ function play(s){
 	var video = $('#vid')[0];
 	video.src = s; 
 	video.load();
-	video.play();
+	var pp=video.play();
+	pp.catch(function(m){showMessage("problem "+m);})
 	//$("#vid > source").attr("src",s);
 	//$("#vid").load();
 	//$("#vid source").attr('src', s);
