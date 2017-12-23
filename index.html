@@ -238,7 +238,7 @@ m
 <script>
 if(typeof(EventSource) !== "undefined") {
 	document.getElementById("result").innerHTML = "try...";
-    var source = new EventSource("https://docs.google.com/spreadsheets/d/1ZQb0V1Q0NpqstnI1KPc9zq37YPLrxU30kvlxEPdpi2E/export?format=tsv&id=1ZQb0V1Q0NpqstnI1KPc9zq37YPLrxU30kvlxEPdpi2E&gid=0");
+    var source = new EventSource("https://script.google.com/macros/s/AKfycbwMQEd6FI91OgLpKBzejeYkkFhSCarWrUh3giJJlxUE42VBr8mJ/exec");
     source.onmessage = function(event) {
         document.getElementById("result").innerHTML += event.data + "<br>";
     };
