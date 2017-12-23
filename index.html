@@ -148,7 +148,7 @@ $.ajax({
             if (w[2].trim() != "play") {
                 html += ("<a href='" + w[1] + "'>" + w[0] + "</a>");
             } else {
-                html += '<a href="#" onClick="play(' + "'" + w[1] + "')" + '"><b>&#8680;</b>' + w[0] + '</a>';
+                html += '<a href="#" id="ppp" onClick="play(' + "'" + w[1] + "')" + '"><b>&#8680;</b>' + w[0] + '</a>';
             }
             html += ("</span>");
         });
@@ -193,11 +193,21 @@ function goOnce(){
 		window.once=true;
 	}
 }
+
+$( "#ppp" ).mouseover(function(e) {
+	$( "#mouseover" ).text(e);
+	console.log(e);
+})
+
 </script>
 <div id="end">.</div>
+<div id="mouseover">mouseover</div>
+
 <div id="help">
 	<p>REDnnn - goto minnn</p>
 	<p>HOME - reload</p>
+	<p>TEXT - toggle controls</p>
+	<p>FAV - push bookmark</p>
 </div>
 </body>
 </html>
