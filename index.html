@@ -98,7 +98,7 @@ $(document).on("keypress", function (e) {
 			{"reg":/^{TEXT}$/,"fun":controls},
 			{"reg":/^{FAV}$/,"fun":bookmark},
 			{"reg":/^{PRE}$/,"fun":unbookmark},
-			{"reg":/^{BLUE}$/,"fun":delete},
+			{"reg":/^{BLUE}$/,"fun":del},
 			{"reg":/^{GREEN}$/,"fun":function(){$( ".sticky" ).toggle(1000)}},
 			{"reg":/^{YELLOW}$/,"fun":function(){$("#vid")[0].pause()}},
 			{"reg":/^{DDD}$/,"fun":undefined}
@@ -202,7 +202,7 @@ function goOnce(){
 	}
 }
 
-function delete(){
+function del(){
 
 
 $.ajax({
