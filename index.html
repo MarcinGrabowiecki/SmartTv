@@ -160,9 +160,7 @@ $.ajax({
 
 loader();
 setInterval(loader,3000);
-
 play(localStorage["lastMovie"])
-
 });
 
 $("#bookmarks").text(localStorage['bookmarks']);
@@ -170,8 +168,12 @@ $("#bookmarks").text(localStorage['bookmarks']);
 function bookmark(){
 	showMessage('bookmark');
 	var b;
-	if(localStorage['bookmarks']){ b=JSON.parse(localStorage['bookmarks']); }
-	else { b=[]; }
+	if(localStorage['bookmarks']) {
+		b=JSON.parse(localStorage['bookmarks']);
+	}
+	else {
+		b=[];
+	}
 	b.push($("#vid")[0].currentTime);
 	$("#bookmarks").text("#vid"+b);
 	localStorage['bookmarks']=JSON.stringify(b);
@@ -191,8 +193,11 @@ function goOnce(){
 		window.once=true;
 	}
 }
-
 </script>
 <div id="end">.</div>
+<div id="help">
+	<p>REDnnn - goto minnn</p>
+	<p>HOME - reload</p>
+</div>
 </body>
 </html>
