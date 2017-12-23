@@ -155,6 +155,13 @@ $.ajax({
         $("#linki").html(html);
             oldMsg = msg;
         }
+
+
+		$("a").mouseover(function(e){
+			$("#mouseover").text(e);
+			console.log(e);
+		})
+
     });
 };
 
@@ -193,11 +200,6 @@ function goOnce(){
 		window.once=true;
 	}
 }
-
-$("a").mouseover(function(e){
-	$("#mouseover").text(e);
-	console.log(e);
-})
 
 
 </script>
