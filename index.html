@@ -196,9 +196,9 @@ function unbookmark(){
 function goOnce(){
 	if(window.once){
 	}else{
+		window.once=true;
 		console.log(localStorage["lastMovie.currentTime"]);
 		$("#vid")[0].currentTime=localStorage["lastMovie.currentTime"];
-		window.once=true;
 	}
 }
 
