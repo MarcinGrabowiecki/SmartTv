@@ -50,6 +50,7 @@ Your browser does not support the video tag.
 <script>
 document.write(localStorage["lastMovie.currentTime"]);
 function play(s){
+	console.log("play  "+s);
 	localStorage["lastMovie"]=s;
 	$("#vid").css("width", "100%");
 	$("#vid").css("height", "100%");
