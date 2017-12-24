@@ -168,7 +168,7 @@ $.ajax({
 
 loader();
 setInterval(loader,3000);
-play(localStorage["lastMovie"]+"#"+localStorage["lastMovie.currentTime"]);
+play(localStorage["lastMovie"]+"#t="+localStorage["lastMovie.currentTime"]);
 });
 
 $("#bookmarks").text(localStorage['bookmarks']);
@@ -231,8 +231,6 @@ m<div id="mouseover">mouseover</div>
 	<p>TEXT - toggle controls</p>
 	<p>FAV - push bookmark</p>
 </div>
-
 <div id="result"></div>
-
 </body>
 </html>
