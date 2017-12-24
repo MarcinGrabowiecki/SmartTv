@@ -158,14 +158,14 @@ $.ajax({
 
 
 		$("a").mouseover(function(e){
-			$("#mouseover").text("#mouseover "+e.target.id)
+			$("#mouseover").text("#mouseover "+JSON.stringify(e.target));
 			window.toDel=e.target.id;
 			console.log(e);
 		})
 
 
 		$("a").focus(function(e){
-			$("#mouseover").text("#focus "+e.target.id)
+			$("#mouseover").text("#focus "+JSON.stringify(e.target));
 			window.toDel=e.target.id;
 			console.log(e);
 		})
@@ -238,6 +238,7 @@ m
 <div id="help">
 	<p><font color="red">REDnnn</font> - goto minnn</p>
 	<p><font color="blue">BLUE</font> - del link</p>
+	<p><font color="green">GREEN</font> - toggle status</p>
 	<p>HOME - reload</p>
 	<p>TEXT - toggle controls</p>
 	<p>FAV - push bookmark</p>
