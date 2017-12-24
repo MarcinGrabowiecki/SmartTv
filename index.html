@@ -132,7 +132,6 @@ $(document).ready(function(){
 var oldMsg;
 
 function loader(){
-
 $.ajax({
         method: "GET",
 		cache: 'false',
@@ -152,7 +151,7 @@ $.ajax({
             if (w[2].trim() != "play") {
                 html += ("<a href='" + w[1] + "'>" + w[0] + "</a>");
             } else {
-                html += '<a href="#" bla="aaaa" id="del'+i+'" onClick="play(' + "'" + w[1] + "')" + '"><b>&#8680;</b>' + w[0] + '</a>';
+                html += '<a href="#" id="del'+i+'" onClick="play(' + "'" + w[1] + "')" + '"><b>&#8680;</b>' + w[0] + '</a>';
             }
             html += ("</span>");
         });
@@ -160,27 +159,8 @@ $.ajax({
             oldMsg = msg;
         }
 
-
-		$("a").mouseover(function(e){
-			return;
-			$("#mouseover").text("mmmmmmmmmmmmmmm");
-			$("#mouseover").text("#mouseover "+JSON.stringify(e.target));
-			window.toDel=e.target.id;
-			console.log(e);
-		})
-
-
 		$("a").focus(function(e){
-			$("#mouseover").text(e);
-			var h="-"+e.target.id;
-			// for( i in e.target ) {
-			// 	h+=i;
-			// 	h+=" ";
-			// 	h+=e.target[i];
-			// 	h+="<br>";
-
-			// }
-			$("#mouseover").html(h);
+			$("#mouseover").html(e.target.id);
 			console.log(e);
 			window.toDel=e.target.id;
 		})
@@ -245,8 +225,7 @@ function del(){
 
 </script>
 <div id="end">...</div>
-m
-<div id="mouseover">mouseover</div>
+m<div id="mouseover">mouseover</div>
 
 <div id="help">
 	<p><font color="red">REDnnn</font> - goto minnn</p>
