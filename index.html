@@ -139,7 +139,9 @@ $.ajax({
             name: "John"
         }
     })
-    .done(function(msg) {
+    .done(function(msg,a,b) {
+    	console.log(a)
+    	console.log(b.getAllResponseHeaders())
         if (oldMsg != msg) {
         var html = "";
         msg.split("\n").forEach(function(e,i) {
@@ -167,8 +169,10 @@ $.ajax({
 
 
 		$("a").focus(function(e){
-			$("#mouseover").text("ffffffffffffffffff");
-			$("#mouseover").text("#focus "+JSON.stringify(e.target));
+			$("#mouseover").text(JSON.stringify(e));
+			console.log(e);
+			console.log(JSON.stringify(e));
+			//$("#mouseover").text("#focus "+JSON.stringify(e.target));
 			window.toDel=e.target.id;
 			console.log(e);
 		})
@@ -260,7 +264,7 @@ if(typeof(EventSource) !== "undefined") {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
 }
 </script>
-1.1
+1.2
 
 </body>
 </html>
