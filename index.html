@@ -118,7 +118,7 @@ $(document).ready(function(){
 	$("#vid").on(
 		"timeupdate", 
 		function(event){
-			goOnce();
+			//goOnce();
 			var ct=Math.round(this.currentTime/60);
 			var max=Math.round(this.duration/60);
 			var proc=Math.round(100*this.currentTime/this.duration);
