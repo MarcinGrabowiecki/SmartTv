@@ -49,13 +49,12 @@ Your browser does not support the video tag.
 <script>
 document.write(localStorage["lastMovie.currentTime"]);
 function play(s){
-	console.log("play  "+s);
+	showMessage("play  "+s);
 	localStorage["lastMovie"]=s;
 	var re=/^(.*)(#t=\d*\.\d*)$/
 	if(s.match(re)){
 		localStorage["lastMovie"]=s.match(re)[1];
 	}
-
 
 	$("#vid").css("width", "100%");
 	$("#vid").css("height", "100%");
@@ -68,7 +67,6 @@ function play(s){
 	//$("#vid").load();
 	//$("#vid source").attr('src', s);
 	//$("#vid").play();
-	showMessage("play");
 }
 
 var message="";
@@ -127,7 +125,7 @@ $(document).ready(function(){
 			var ct=Math.round(this.currentTime/60);
 			var max=Math.round(this.duration/60);
 			var proc=Math.round(100*this.currentTime/this.duration);
-		    $("#current").html(ct+"/"+max+"<div  style='background-color: red;width:"+proc+"%;height:2px'></div><div id='message'>"+message+this.currentTime+"</div>");
+		    $("#current").html(ct+"/"+max+"<div  style='background-color: red;width:"+proc+"%;height:2px'></div><div id='message'>"+message+"</div>");
 			if(this.currentTime!=0) localStorage["lastMovie.currentTime"]=this.currentTime;
 			if(ct==max) localStorage["lastMovie.currentTime"]=0;
 		}
