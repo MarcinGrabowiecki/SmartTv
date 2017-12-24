@@ -46,9 +46,10 @@ Your browser does not support the video tag.
 <div id="key">klawisze</div>
 <div id="koment">kod klawisza</div>
 <div id="bookmarks">-</div>
+-----------------------------
 </p>
 <script>
-
+document.write(localStorage["lastMovie.currentTime"]);
 function play(s){
 	localStorage["lastMovie"]=s;
 	$("#vid").css("width", "100%");
@@ -122,8 +123,7 @@ $(document).ready(function(){
 			var ct=Math.round(this.currentTime/60);
 			var max=Math.round(this.duration/60);
 			var proc=Math.round(100*this.currentTime/this.duration);
-		    $("#current").html(ct+"/"+max+"<div  style='background-color: red;width:"+proc+"%;height:2px'></div><div id='message'>"+message+"</div>"
-);
+		    $("#current").html(ct+"/"+max+"<div  style='background-color: red;width:"+proc+"%;height:2px'></div><div id='message'>"+message+"</div>");
 			if(this.currentTime!=0) localStorage["lastMovie.currentTime"]=this.currentTime;
 			if(ct==max) localStorage["lastMovie.currentTime"]=0;
 		}
@@ -219,7 +219,6 @@ function del(){
 	    .done(function(msg) {
 	    	console.log(msg);
 	    });
-
 }
 
 
