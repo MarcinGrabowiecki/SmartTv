@@ -169,9 +169,8 @@ $.ajax({
 
 
 		$("a").focus(function(e){
-			$("#mouseover").text(JSON.stringify(e));
+			$("#mouseover").text(e);
 			console.log(e);
-			console.log(JSON.stringify(e));
 			//$("#mouseover").text("#focus "+JSON.stringify(e.target));
 			window.toDel=e.target.id;
 			console.log(e);
@@ -218,21 +217,18 @@ function goOnce(){
 }
 
 function del(){
-
-console.log(this);
-
-$.ajax({
-        method: "GET",
-		cache: 'false',
-        url: "https://script.google.com/macros/s/AKfycbwMQEd6FI91OgLpKBzejeYkkFhSCarWrUh3giJJlxUE42VBr8mJ/exec",
-        data: {
-            command: "delete",
-            id: window.toDel
-        }
-    })
-    .done(function(msg) {
-    	console.log(msg);
-    });
+	$.ajax({
+	        method: "GET",
+			cache: 'false',
+	        url: "https://script.google.com/macros/s/AKfycbwMQEd6FI91OgLpKBzejeYkkFhSCarWrUh3giJJlxUE42VBr8mJ/exec",
+	        data: {
+	            command: "delete",
+	            id: window.toDel
+	        }
+	    })
+	    .done(function(msg) {
+	    	console.log(msg);
+	    });
 
 }
 
