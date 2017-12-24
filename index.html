@@ -170,6 +170,15 @@ $.ajax({
 
 		$("a").focus(function(e){
 			$("#mouseover").text(e);
+			var h="";
+			for( i in e ) {
+				h+=i;
+				h+=" ";
+				h+=e[i];
+				h+="<br>";
+
+			}
+			$("#mouseover").html(h);
 			console.log(e);
 			//$("#mouseover").text("#focus "+JSON.stringify(e.target));
 			window.toDel=e.target.id;
@@ -260,7 +269,7 @@ if(typeof(EventSource) !== "undefined") {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
 }
 </script>
-1.2
+1.5
 
 </body>
 </html>
