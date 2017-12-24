@@ -123,6 +123,7 @@ $(document).ready(function(){
 			var ct=Math.round(this.currentTime/60);
 			var max=Math.round(this.duration/60);
 			var proc=Math.round(100*this.currentTime/this.duration);
+			proc+=("   "+this.currentTime);
 		    $("#current").html(ct+"/"+max+"<div  style='background-color: red;width:"+proc+"%;height:2px'></div><div id='message'>"+message+"</div>");
 			if(this.currentTime!=0) localStorage["lastMovie.currentTime"]=this.currentTime;
 			if(ct==max) localStorage["lastMovie.currentTime"]=0;
@@ -141,8 +142,6 @@ $.ajax({
         }
     })
     .done(function(msg,a,b) {
-    	console.log(a)
-    	console.log(b.getAllResponseHeaders())
         if (oldMsg != msg) {
         var html = "";
         msg.split("\n").forEach(function(e,i) {
