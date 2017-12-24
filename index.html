@@ -170,19 +170,17 @@ $.ajax({
 
 		$("a").focus(function(e){
 			$("#mouseover").text(e);
-			var h="";
-			for( i in e.target ) {
-				h+=i;
-				h+=" ";
-				h+=e.target[i];
-				h+="<br>";
+			var h="-"+e.target.id;
+			// for( i in e.target ) {
+			// 	h+=i;
+			// 	h+=" ";
+			// 	h+=e.target[i];
+			// 	h+="<br>";
 
-			}
+			// }
 			$("#mouseover").html(h);
 			console.log(e);
-			//$("#mouseover").text("#focus "+JSON.stringify(e.target));
 			window.toDel=e.target.id;
-			console.log(e);
 		})
 
     });
@@ -269,7 +267,7 @@ if(typeof(EventSource) !== "undefined") {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
 }
 </script>
-1.6
+1.7
 
 </body>
 </html>
