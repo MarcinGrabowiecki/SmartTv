@@ -158,6 +158,7 @@ $.ajax({
 
 
 		$("a").mouseover(function(e){
+			return;
 			$("#mouseover").text("mmmmmmmmmmmmmmm");
 			$("#mouseover").text("#mouseover "+JSON.stringify(e.target));
 			window.toDel=e.target.id;
@@ -259,7 +260,7 @@ if(typeof(EventSource) !== "undefined") {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
 }
 </script>
-1.0
+1.1
 
 </body>
 </html>
