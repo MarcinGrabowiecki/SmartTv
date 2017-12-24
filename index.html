@@ -42,11 +42,10 @@ Your browser does not support the video tag.
 <a href="#" onClick="restore()">restore</a>
 </p>
 <p>
-<div id="linki">linki</div>
-<div id="key">klawisze</div>
-<div id="koment">kod klawisza</div>
-<div id="bookmarks">-</div>
------------------------------
+	<div id="linki">linki</div>
+	<div id="key">klawisze</div>
+	<div id="koment">kod klawisza</div>
+	<div id="bookmarks">-</div>
 </p>
 <script>
 document.write(localStorage["lastMovie.currentTime"]);
@@ -89,7 +88,7 @@ function goto(v){
 
 $(document).on("keypress", function (e) {
 	$("#koment").text(e.keyCode);
-	var keys={26:"{FAV}",37:"⇦",38:"⇧",39:"&#8680",40:"&#8681",41:"{ECO}",42:"{ZOOM-}",49:"{ZOOM+}",50:"{TEXT}",56:"{SOURCE}",58:"{HOME}",60:"{PRE}",61:"{LIST}",403:"{RED}",404:"{GREEN}",405:"{YELLOW}",406:"{BLUE}"};
+	var keys={26:"{FAV}",37:"⇦",38:"⇧",39:"⇨",40:"⇩",41:"{ECO}",42:"{ZOOM-}",49:"{ZOOM+}",50:"{TEXT}",56:"{SOURCE}",58:"{HOME}",60:"{PRE}",61:"{LIST}",403:"{RED}",404:"{GREEN}",405:"{YELLOW}",406:"{BLUE}"};
 	if(keys[e.keyCode]&&!e.key) e.key=keys[e.keyCode];
 	enter+=e.key;
 	$("#key").text(e.keyCode+" "+e.key+" "+enter);
@@ -169,7 +168,7 @@ $.ajax({
 
 loader();
 setInterval(loader,3000);
-play(localStorage["lastMovie"])
+play(localStorage["lastMovie"]+"#"+localStorage["lastMovie.currentTime"]);
 });
 
 $("#bookmarks").text(localStorage['bookmarks']);
@@ -197,9 +196,8 @@ function unbookmark(){
 
 function goOnce(){
 	if(window.once){
-	}else{
+	} else {
 		window.once=true;
-		console.log(localStorage["lastMovie.currentTime"]);
 		$("#vid")[0].currentTime=localStorage["lastMovie.currentTime"];
 	}
 }
