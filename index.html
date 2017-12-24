@@ -224,6 +224,7 @@ function goOnce(){
 }
 
 function del(){
+	$("#mouseover").text(window.toDel);
 	$.ajax({
 	        method: "GET",
 			cache: 'false',
@@ -267,7 +268,7 @@ if(typeof(EventSource) !== "undefined") {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
 }
 </script>
-1.7
+1.9
 
 </body>
 </html>
