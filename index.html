@@ -158,6 +158,7 @@ $.ajax({
 
 
 		$("a").mouseover(function(e){
+			$("#mouseover").text("mmmmmmmmmmmmmmm");
 			$("#mouseover").text("#mouseover "+JSON.stringify(e.target));
 			window.toDel=e.target.id;
 			console.log(e);
@@ -165,6 +166,7 @@ $.ajax({
 
 
 		$("a").focus(function(e){
+			$("#mouseover").text("ffffffffffffffffff");
 			$("#mouseover").text("#focus "+JSON.stringify(e.target));
 			window.toDel=e.target.id;
 			console.log(e);
