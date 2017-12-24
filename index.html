@@ -158,6 +158,14 @@ $.ajax({
 
 
 		$("a").mouseover(function(e){
+			$("#mouseover").text("#mouseover "+e.target.id)
+			window.toDel=e.target.id;
+			console.log(e);
+		})
+
+
+		$("a").focus(function(e){
+			$("#mouseover").text("#focus "+e.target.id)
 			window.toDel=e.target.id;
 			console.log(e);
 		})
@@ -228,7 +236,8 @@ m
 <div id="mouseover">mouseover</div>
 
 <div id="help">
-	<p>REDnnn - goto minnn</p>
+	<p><font color="red">REDnnn</font> - goto minnn</p>
+	<p><font color="blue">BLUE</font> - del link</p>
 	<p>HOME - reload</p>
 	<p>TEXT - toggle controls</p>
 	<p>FAV - push bookmark</p>
