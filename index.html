@@ -25,7 +25,6 @@
   <link rel="icon" 
       type="image/png" 
       href="https://cdn3.iconfinder.com/data/icons/social-circle/512/social_4-512.png">
-
   <title>SmartTV Player</title>
 </head>
 <body  bgcolor="#111111" text="#eeeeee"  style="margin:0; padding:0">
@@ -52,6 +51,12 @@ document.write(localStorage["lastMovie.currentTime"]);
 function play(s){
 	console.log("play  "+s);
 	localStorage["lastMovie"]=s;
+	var re=/^(.*)(#t=\d*\.\d*)$/
+	if(s.match(re)){
+		localStorage["lastMovie"]=s.match(re)[1];
+	}
+
+
 	$("#vid").css("width", "100%");
 	$("#vid").css("height", "100%");
 	var video = $('#vid')[0];
@@ -119,11 +124,10 @@ $(document).ready(function(){
 	$("#vid").on(
 		"timeupdate", 
 		function(event){
-			//goOnce();
 			var ct=Math.round(this.currentTime/60);
 			var max=Math.round(this.duration/60);
 			var proc=Math.round(100*this.currentTime/this.duration);
-			proc+=("   "+this.currentTime);
+			proc+=(" "+this.currentTime);
 		    $("#current").html(ct+"/"+max+"<div  style='background-color: red;width:"+proc+"%;height:2px'></div><div id='message'>"+message+"</div>");
 			if(this.currentTime!=0) localStorage["lastMovie.currentTime"]=this.currentTime;
 			if(ct==max) localStorage["lastMovie.currentTime"]=0;
@@ -233,6 +237,6 @@ m<div id="mouseover">mouseover</div>
 	<p>FAV - push bookmark</p>
 </div>
 <div id="result"></div>
-5.0
+1.0
 </body>
 </html>
