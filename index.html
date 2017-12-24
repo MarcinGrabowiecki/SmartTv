@@ -89,7 +89,7 @@ function goto(v){
 
 $(document).on("keypress", function (e) {
 	$("#koment").text(e.keyCode);
-	var keys={26:"{FAV}",37:"&#8678;",38:"&#8679",39:"&#8680",40:"&#8681",41:"{ECO}",42:"{ZOOM-}",49:"{ZOOM+}",50:"{TEXT}",56:"{SOURCE}",58:"{HOME}",60:"{PRE}",61:"{LIST}",403:"{RED}",404:"{GREEN}",405:"{YELLOW}",406:"{BLUE}"};
+	var keys={26:"{FAV}",37:"⇦",38:"⇧",39:"&#8680",40:"&#8681",41:"{ECO}",42:"{ZOOM-}",49:"{ZOOM+}",50:"{TEXT}",56:"{SOURCE}",58:"{HOME}",60:"{PRE}",61:"{LIST}",403:"{RED}",404:"{GREEN}",405:"{YELLOW}",406:"{BLUE}"};
 	if(keys[e.keyCode]&&!e.key) e.key=keys[e.keyCode];
 	enter+=e.key;
 	$("#key").text(e.keyCode+" "+e.key+" "+enter);
