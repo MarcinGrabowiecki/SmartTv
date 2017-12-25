@@ -47,7 +47,6 @@ Your browser does not support the video tag.
 	<div id="bookmarks">-</div>
 </p>
 <script>
-document.write(localStorage["lastMovie.currentTime"]);
 function play(s){
 	showMessage("play  "+s);
 	localStorage["lastMovie"]=s;
@@ -55,20 +54,18 @@ function play(s){
 	if(s.match(re)){
 		localStorage["lastMovie"]=s.match(re)[1];
 	}
-
 	$("#vid").css("width", "100%");
 	$("#vid").css("height", "100%");
 	var video = $('#vid')[0];
 	video.src = s; 
 	video.load();
 	var pp=video.play();
-	document.write("play");
-	document.write(pp);
+	log("play "+pp);
 	pp.catch(function(m){
 		showMessage("problem "+m);
 	});
 	pp.then(function(){
-		document.write("goto");
+		log("promise "+pp);
 		showMessage("go to "+localStorage["lastMovie.currentTime"]);
 		$("#vid")[0].currentTime=localStorage["lastMovie.currentTime"];
 	});
@@ -226,6 +223,10 @@ function del(){
 	    });
 }
 
+function log(l){
+	$("#log").append($("<li>").text(l));
+}
+
 
 </script>
 <div id="end">...</div>
@@ -240,6 +241,9 @@ m<div id="mouseover">mouseover</div>
 	<p>FAV - push bookmark</p>
 </div>
 <div id="result"></div>
-1.5
+<ul id="log">
+	<li>log</li>
+</ul>
+1.6
 </body>
 </html>
