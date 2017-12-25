@@ -138,8 +138,16 @@ $(document).ready(function(){
 		"loadeddata", 
 		function(event){
 			log("loadeddata "+event);
+			console.log(event);
+			var v=$("#vid");
+			for(i in v){
+				log(v[i]);
+			}
+			$("#vid")[0].currentTime=localStorage["lastMovie.currentTime"];
 		}
 	);
+
+
 
 var oldMsg;
 
