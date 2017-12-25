@@ -239,7 +239,7 @@ function del(){
 }
 
 function log(l){
-	$("#log").append($("<li>").text(new Date()+" - "+l));
+	$("#log").append($("<li>").text(new Date().toISOString()+" - "+l));
 }
 
 
