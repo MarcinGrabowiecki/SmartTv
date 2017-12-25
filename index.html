@@ -62,11 +62,11 @@ function play(s){
 	video.src = s; 
 	video.load();
 	var pp=video.play();
-	pp.catch(function(m){showMessage("problem "+m);})
-	//$("#vid > source").attr("src",s);
-	//$("#vid").load();
-	//$("#vid source").attr('src', s);
-	//$("#vid").play();
+	pp.catch(function(m){showMessage("problem "+m);});
+	pp.then(function(e){
+		video.currentTime=(localStorage["lastMovie.currentTime"]);
+	});
+	console.log(pp);
 }
 
 var message="";
@@ -234,6 +234,6 @@ m<div id="mouseover">mouseover</div>
 	<p>FAV - push bookmark</p>
 </div>
 <div id="result"></div>
-1.1
+1.2
 </body>
 </html>
