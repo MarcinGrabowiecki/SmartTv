@@ -58,7 +58,7 @@ function play(s){
 	$("#vid").css("height", "100%");
 	var video = $('#vid')[0];
 	video.src = s; 
-	video.load();
+	log(video.load());
 	var pp=video.play();
 	log("play "+pp);
 	pp.catch(function(m){
@@ -69,7 +69,7 @@ function play(s){
 		showMessage("go to "+localStorage["lastMovie.currentTime"]);
 		$("#vid")[0].currentTime=localStorage["lastMovie.currentTime"];
 	});
-	console.log(pp);
+	console.log(video);
 }
 
 var message="";
@@ -131,6 +131,13 @@ $(document).ready(function(){
 		    $("#current").html(ct+"/"+max+"<div  style='background-color: red;width:"+proc+"%;height:2px'></div><div id='message'>"+message+"</div>");
 			if(this.currentTime!=0) localStorage["lastMovie.currentTime"]=this.currentTime;
 			if(ct==max) localStorage["lastMovie.currentTime"]=0;
+		}
+	);
+
+	$("#vid").on(
+		"loadeddata", 
+		function(event){
+			log("loadeddata "+event);
 		}
 	);
 
