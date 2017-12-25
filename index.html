@@ -45,7 +45,7 @@ Your browser does not support the video tag.
 	<div id="key">klawisze</div>
 	<div id="koment">kod klawisza</div>
 	<div id="bookmarks">-</div>
-	<div id="progress">-</div>
+	<div id="progress">progress</div>
 </p>
 <script>
 function play(s){
@@ -147,11 +147,14 @@ $(document).ready(function(){
 		"progress", 
 		function(event){
 			var h="";
-			for(var i=0; i<h.length; i++){
+			for(var i=0; i<this.buffered.length; i++){
 				h+=this.buffered.start(i);
+				h+=" > ";
+				h+=this.buffered.end(i);
 				h+="<br>"
 			}
-			$("#progress").html()
+			$("#progress").html(h);
+			console.log(h);
 			//showMessage(this.buffered);		
 			//window.ee=this;
 			//progressfail
