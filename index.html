@@ -147,6 +147,14 @@ $(document).ready(function(){
 		}
 	);
 
+	$("#vid").on(
+		"progress", 
+		function(event){
+			console.log(event);
+			console.log(this);
+		}
+	);
+
 
 
 var oldMsg;
@@ -195,13 +203,8 @@ $("#bookmarks").text(localStorage['bookmarks']);
 
 function bookmark(){
 	showMessage('bookmark');
-	var b;
-	if(localStorage['bookmarks']) {
-		b=JSON.parse(localStorage['bookmarks']);
-	}
-	else {
-		b=[];
-	}
+	var b=[];
+	if(localStorage['bookmarks']) { b=JSON.parse(localStorage['bookmarks']); }
 	b.push($("#vid")[0].currentTime);
 	$("#bookmarks").text("#vid"+b);
 	localStorage['bookmarks']=JSON.stringify(b);
@@ -212,14 +215,6 @@ function unbookmark(){
 	var b=JSON.parse(localStorage['bookmarks']);
 	$("#vid")[0].currentTime=b.pop();
 	localStorage['bookmarks']=JSON.stringify(b);
-}
-
-function goOnce(){
-	if(window.once){
-	} else {
-		window.once=true;
-		$("#vid")[0].currentTime=localStorage["lastMovie.currentTime"];
-	}
 }
 
 function del(){
