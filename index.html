@@ -145,6 +145,8 @@ $(document).ready(function(){
 	$("#vid").on(
 		"progress", 
 		function(event){
+			showMessage(this.buffered);		
+			window.ee=this;
 			//progressfail
 		}
 	);
