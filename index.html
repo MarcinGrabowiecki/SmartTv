@@ -177,7 +177,8 @@ $.ajax({
             var w = e.split("\t");
             html += ("<span>");
             if (w[2].trim() != "play") {
-                html += ("<a href='" + w[1] + "'>" + w[0] + "</a>");
+                html += `<a href='${w[1]}'>${w[0]}</a>`;
+                //html += ("<a href='" + w[1] + "'>" + w[0] + "</a>");
             } else {
                 html += '<a href="#" id="del'+i+'" onClick="play(' + "'" + w[1] + "')" + '"><b>&#8680;</b>' + w[0] + '</a>';
             }
