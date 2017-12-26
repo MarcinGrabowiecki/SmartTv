@@ -175,7 +175,7 @@ $.ajax({
         var html = "";
         msg.split("\n").forEach(function(e,i) {
             var w = e.split("\t");
-            html += (`<span>${w}`);
+            html += "<span>";
             if (w[2].trim() != "play") {
                 html += ("<a href='" + w[1] + "'>" + w[0] + "</a>");
             } else {
@@ -256,6 +256,6 @@ m<div id="mouseover">mouseover</div>
 <ul id="log">
 	<li>log</li>
 </ul>
-1.8
+1.0
 </body>
 </html>
