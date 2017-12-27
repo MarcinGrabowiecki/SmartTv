@@ -34,6 +34,7 @@
   <source src="" type="video/mp4">
 Your browser does not support the video tag.
 </video>
+<canvas id="myCanvas" width="1200" height="100"></canvas>
 <p>
 <a href="https://app-1512624596.000webhostapp.com/">reload</a>
 <a href="#" onClick="controls()">toggle controls</a>
@@ -149,19 +150,16 @@ $(document).ready(function(){
 
 			var dur=this.duration;
 			var cur=this.currentTime;
-			var wid=1000;
+			var wid=1200;
 			var rat=wid/dur;
 
 			var c = document.getElementById("myCanvas");
 			var ctx = c.getContext("2d");
 
 			ctx.beginPath();
-			ctx.rect(0, 0, wid, 20);
+			ctx.rect(0, 0, wid, 15);
 			ctx.fillStyle = "gray";
 			ctx.fill();
-
-
-
 
 			var h="";
 			for(var i=0; i<this.buffered.length; i++){
@@ -171,13 +169,13 @@ $(document).ready(function(){
 				h+="<br>"
 
 				ctx.beginPath();
-				ctx.rect(this.buffered.start(i)*rat, 0, this.buffered.end(i)*rat, 20);
+				ctx.rect(this.buffered.start(i)*rat, 0, this.buffered.end(i)*rat, 15);
 				ctx.fillStyle = "yellow";
 				ctx.fill();
 			}
 			
 			ctx.beginPath();
-			ctx.rect(rat*cur, 5, 3, 10);
+			ctx.rect(rat*cur, 3, 3, 9);
 			ctx.fillStyle = "red";
 			ctx.fill();
 
@@ -285,7 +283,6 @@ m<div id="mouseover">mouseover</div>
 	<li>log</li>
 </ul>
 
-<canvas id="myCanvas" width="1000" height="100"></canvas>
 <script type="text/javascript">
 
 </script>
