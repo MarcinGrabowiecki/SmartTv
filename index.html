@@ -146,13 +146,41 @@ $(document).ready(function(){
 	$("#vid").on(
 		"progress", 
 		function(event){
+
+			var dur=this.duration;
+			var cur=this.currentTime;
+			var wid=1000;
+			var rat=wid/dur;
+
+			var c = document.getElementById("myCanvas");
+			var ctx = c.getContext("2d");
+
+			ctx.beginPath();
+			ctx.rect(0, 0, wid, 20);
+			ctx.fillStyle = "gray";
+			ctx.fill();
+
+
+
+
 			var h="";
 			for(var i=0; i<this.buffered.length; i++){
 				h+=this.buffered.start(i);
 				h+=" > ";
 				h+=this.buffered.end(i);
 				h+="<br>"
+
+				ctx.beginPath();
+				ctx.rect(this.buffered.start(i)*rat, 0, this.buffered.end(i)*rat, 20);
+				ctx.fillStyle = "yellow";
+				ctx.fill();
 			}
+			
+			ctx.beginPath();
+			ctx.rect(rat*cur, 5, 3, 10);
+			ctx.fillStyle = "red";
+			ctx.fill();
+
 			$("#progress").html(h);
 		}
 	);
@@ -257,5 +285,11 @@ m<div id="mouseover">mouseover</div>
 	<li>log</li>
 </ul>
 1.0
+
+<canvas id="myCanvas" width="1000" height="100"></canvas>
+<script type="text/javascript">
+
+</script>
+
 </body>
 </html>
