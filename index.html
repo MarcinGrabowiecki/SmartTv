@@ -169,7 +169,7 @@ $(document).ready(function(){
 				h+="<br>"
 
 				ctx.beginPath();
-				ctx.rect(this.buffered.start(i)*rat, 0, this.buffered.end(i)*rat, 15);
+				ctx.rect(this.buffered.start(i)*rat, 0, (this.buffered.end(i)-this.buffered.start(i))*rat, 15);
 				ctx.fillStyle = "yellow";
 				ctx.fill();
 			}
