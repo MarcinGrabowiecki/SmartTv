@@ -127,31 +127,21 @@ $(document).on("keypress", function (e) {
 
 $(document).ready(function(){
 
-["abort",
-"canplay",
-"canplaythrough",
-"durationchange",
-"emptied",
-"ended",
-"error",
-"loadeddata",
-"loadedmetadata",
-"loadstart",
-"pause",
-"play",
-"playing",
-//"progress",
-"ratechange",
-"seeked",
-"seeking",
-"stalled",
-//"suspend",
-//"timeupdate",
-"volumechange",
-"waiting"].forEach(function(e){
-$("#vid").on(e,function(evt){log(e);})
-})
+	var vv=document.getElementById("vid");
 
+	for(var i in vv) {
+		log(i+"\t"+vv[i]);
+	}
+
+	["abort","canplay","canplaythrough","durationchange","emptied",
+	"ended","error","loadeddata","loadedmetadata","loadstart",
+	"pause","play","playing",
+	//"progress",
+	"ratechange","seeked","seeking","stalled",
+	//"suspend","timeupdate",
+	"volumechange","waiting"].forEach(function(e){
+	$("#vid").on(e,function(evt){log(e);})
+	})
 
 	$("#end").next().text("")
 	$("#vid").on(
