@@ -130,7 +130,7 @@ $(document).ready(function(){
 	var vv=document.getElementById("vid");
 
 	for(var i in vv) {
-		log(i+"\t"+vv[i]);
+		rlog(i+"\t"+vv[i]);
 	}
 
 	["abort","canplay","canplaythrough","durationchange","emptied",
@@ -298,7 +298,7 @@ function rlog(l){
 	  	data: JSON.stringify([l,l,'log',new Date()])
 	  },
 	  success: function(response) {
-	    alert('append ok');
+	    console.log(response);
 	  },
 	  error: function(xhr) {
 	    console.log('problem: ' + xhr);
