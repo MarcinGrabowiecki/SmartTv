@@ -127,11 +127,6 @@ $(document).on("keypress", function (e) {
 
 $(document).ready(function(){
 
-	var vv=document.getElementById("vid");
-
-	for(var i in vv) {
-		rlog(i+"\t"+vv[i]);
-	}
 
 	["abort","canplay","canplaythrough","durationchange","emptied",
 	"ended","error","loadeddata","loadedmetadata","loadstart",
@@ -161,6 +156,18 @@ $(document).ready(function(){
 		function(event){
 			log("loadeddata "+event);
 			$("#vid")[0].currentTime=localStorage["lastMovie.currentTime"];
+
+
+				var vv=document.getElementById("vid");
+				for(var i in vv) {
+					rlog(i+"\t"+vv[i]);
+				}
+
+				var vv=document.getElementById("vid")[0];
+				for(var i in vv) {
+					rlog(i+"\t"+vv[i]);
+				}
+
 		}
 	);
 
