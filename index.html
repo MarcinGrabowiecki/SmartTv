@@ -62,16 +62,6 @@ function play(s){
 	video.src = s; 
 	log(video.load());
 	var pp=video.play();
-	log("play "+pp);
-	pp.catch(function(m){
-		showMessage("problem "+m);
-	});
-	pp.then(function(){
-		log("promise "+pp);
-		showMessage("go to "+localStorage["lastMovie.currentTime"]);
-		$("#vid")[0].currentTime=localStorage["lastMovie.currentTime"];
-	});
-	console.log(video);
 }
 
 var message="";
@@ -163,13 +153,14 @@ $(document).ready(function(){
 					rlog(i+"\t"+vv[i]);
 				}
 
-				rlog("-------------------------------------");
+				rlog("-------------------------");
 
 				var vv=document.getElementById("vid")[0];
 				for(var i in vv) {
 					rlog(i+"\t"+vv[i]);
 				}
-
+				rlog("-------------------------");
+				rlog($("#vid").scrollWidth);
 		}
 	);
 
