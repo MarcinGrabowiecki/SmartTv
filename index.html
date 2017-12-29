@@ -147,26 +147,32 @@ $(document).ready(function(){
 			log("loadeddata "+event);
 			$("#vid")[0].currentTime=localStorage["lastMovie.currentTime"];
 
+				// var vv=document.getElementById("vid");
+				// for(var i in vv) {
+				// 	rlog(i+"\t"+vv[i]);
+				// }
 
-				var vv=document.getElementById("vid");
-				for(var i in vv) {
-					rlog(i+"\t"+vv[i]);
-				}
+				// rlog("-------------------------");
 
-				rlog("-------------------------");
-
-				var vv=document.getElementById("vid")[0];
-				for(var i in vv) {
-					rlog(i+"\t"+vv[i]);
-				}
-				rlog("-------------------------");
-				rlog($("#vid").scrollWidth);
+				// var vv=document.getElementById("vid")[0];
+				// for(var i in vv) {
+				// 	rlog(i+"\t"+vv[i]);
+				// }
+				// rlog("-------------------------");
+				// rlog($("#vid").scrollWidth);
 		}
 	);
 
 	$("#vid").on(
 		"progress", 
 		function(event){
+
+			function drawRect(ctx,a,b,c,d,color) {
+				ctx.beginPath();
+				ctx.rect(a,b,c,d);
+				ctx.fillStyle = color;
+				ctx.fill();
+			}
 
 			var dur=this.duration;
 			var cur=this.currentTime;
@@ -175,30 +181,13 @@ $(document).ready(function(){
 
 			var c = document.getElementById("myCanvas");
 			var ctx = c.getContext("2d");
-
-			ctx.beginPath();
-			ctx.rect(0, 0, wid, 15);
-			ctx.fillStyle = "gray";
-			ctx.fill();
-
+			drawRect(ctx, 0, 0, wid, 15, "gray");
 			var h="";
 			for(var i=0; i<this.buffered.length; i++){
-				h+=this.buffered.start(i);
-				h+=" > ";
-				h+=this.buffered.end(i);
-				h+="<br>"
-
-				ctx.beginPath();
-				ctx.rect(this.buffered.start(i)*rat, 0, (this.buffered.end(i)-this.buffered.start(i))*rat, 15);
-				ctx.fillStyle = "yellow";
-				ctx.fill();
+				h+=this.buffered.start(i)+" > "+this.buffered.end(i)+"<br>";
+				drawRect(ctx, this.buffered.start(i)*rat, 0, (this.buffered.end(i)-this.buffered.start(i))*rat, 15, "yellow");
 			}
-			
-			ctx.beginPath();
-			ctx.rect(rat*cur, 2, 2, 11);
-			ctx.fillStyle = "red";
-			ctx.fill();
-
+			drawRect(ctx, rat*cur, 2, 2, 11, "red");
 			$("#progress").html(h);
 		}
 	);
@@ -213,7 +202,7 @@ $.ajax({
 		cache: 'false',
         url: "https://docs.google.com/spreadsheets/d/1ZQb0V1Q0NpqstnI1KPc9zq37YPLrxU30kvlxEPdpi2E/export?format=tsv&id=1ZQb0V1Q0NpqstnI1KPc9zq37YPLrxU30kvlxEPdpi2E&gid=0",
         data: {
-            name: "John"
+            name: "x"
         }
     })
     .done(function(msg,a,b) {
@@ -223,11 +212,11 @@ $.ajax({
             var w = e.split("\t");
             html += "<span>";
             if (w[2].trim() != "play") {
-                html += ("<a href='" + w[1] + "'>" + w[0] + "</a>");
+                html += "<a href='" + w[1] + "' id='del'"+i+">" + w[0] + "</a>";
             } else {
-                html += '<a href="#" id="del'+i+'" onClick="play(' + "'" + w[1] + "')" + '"><b>&#8680;</b>' + w[0] + '</a>';
+                html += '<a href="#" id="del'+i+'" onClick="play(\'' + w[1] + '\')"><b>&#8680;</b>' + w[0] + '</a>';
             }
-            html += ("</span>");
+            html += ("<br></span>");
         });
         $("#linki").html(html);
             oldMsg = msg;
@@ -245,6 +234,7 @@ $.ajax({
 loader();
 setInterval(loader,3000);
 play(localStorage["lastMovie"]+"#t="+localStorage["lastMovie.currentTime"]);
+
 });
 
 $("#bookmarks").text(localStorage['bookmarks']);
@@ -286,7 +276,6 @@ function log(l){
 }
 
 function rlog(l){
-
 
 	var url="https://script.google.com/macros/s/AKfycbwMQEd6FI91OgLpKBzejeYkkFhSCarWrUh3giJJlxUE42VBr8mJ/exec"
 
