@@ -285,6 +285,29 @@ function log(l){
 	$("#log").append($("<li>").text(new Date().toISOString()+" - "+l));
 }
 
+function rlog(l){
+
+
+	var url="https://script.google.com/macros/s/AKfycbwMQEd6FI91OgLpKBzejeYkkFhSCarWrUh3giJJlxUE42VBr8mJ/exec"
+
+	$.ajax({
+	  url: url,
+	  type: "get",
+	  data: { 
+	  	command: 'log', 
+	  	data: JSON.stringify([l,l,'log',new Date()])
+	  },
+	  success: function(response) {
+	    alert('append ok');
+	  },
+	  error: function(xhr) {
+	    console.log('problem: ' + xhr);
+	  }
+	});
+
+
+}
+
 
 </script>
 <div id="end">...</div>
