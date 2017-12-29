@@ -214,7 +214,7 @@ $.ajax({
             if (w[2].trim() != "play") {
                 html += "<a href='" + w[1] + "' id='del'"+i+">" + w[0] + "</a>";
             } else {
-                html += '<a href="#" id="del'+i+'" onClick="play(\'' + w[1] + '\')"><b>&#8680;</b>' + w[0] + '</a>';
+                html += '<a href="#" id="del'+i+'" onClick="play(\'' + w[1] + '\')"><b>&#8680;</b>' + w[0] + '</a>'+bookmarks4(w[1]);
             }
             html += ("<br></span>");
         });
@@ -239,20 +239,28 @@ play(localStorage["lastMovie"]+"#t="+localStorage["lastMovie.currentTime"]);
 
 $("#bookmarks").text(localStorage['bookmarks']);
 
+function bookmarks4(cm){
+	var b=[];
+	if(localStorage['b:'+cm]) { b=JSON.parse(localStorage['b:'+cm]); }
+	return b.length;
+}
+
 function bookmark(){
+	var cm=localStorage["lastMovie"];
 	showMessage('bookmark');
 	var b=[];
-	if(localStorage['bookmarks']) { b=JSON.parse(localStorage['bookmarks']); }
+	if(localStorage['b:'+cm]) { b=JSON.parse(localStorage['b:'+cm]); }
 	b.push($("#vid")[0].currentTime);
 	$("#bookmarks").text("#vid"+b);
-	localStorage['bookmarks']=JSON.stringify(b);
+	localStorage['b:'+cm]=JSON.stringify(b);
 }
 
 function unbookmark(){
+	cm=localStorage["lastMovie"];
 	showMessage('bookmark');
-	var b=JSON.parse(localStorage['bookmarks']);
+	var b=JSON.parse(localStorage['b:'+cm]);
 	$("#vid")[0].currentTime=b.pop();
-	localStorage['bookmarks']=JSON.stringify(b);
+	localStorage['b:'+cm]=JSON.stringify(b);
 }
 
 function del(){
@@ -293,7 +301,6 @@ function rlog(l){
 	    console.log('problem: ' + xhr);
 	  }
 	});
-
 
 }
 
